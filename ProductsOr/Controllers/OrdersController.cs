@@ -25,10 +25,9 @@ public class OrdersController : ControllerBase
     [HttpPost]
     public ActionResult<Order> Post(Order order)
     {
-        // Убедитесь, что Id не задается вручную
         foreach (var product in order.Products)
         {
-            product.Id = 0; // Сбросьте Id, чтобы избежать конфликтов
+            product.Id = 0;
         }
 
         _context.Orders.Add(order);

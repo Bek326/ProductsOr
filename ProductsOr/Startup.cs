@@ -25,8 +25,7 @@ public class Startup
         {
             endpoints.MapControllers();
         });
-
-        // Ensure the database is created
+        
         using (var scope = app.ApplicationServices.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
